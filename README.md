@@ -1,5 +1,6 @@
-# ecom_model
-The project can be found in the file Ecom.ipynb.
+# Ecommerce Shoppers Behaviour Understanding
+
+The project can be found in the file "Ecom.ipynb".
 
 # Problem overview
 This project aims to predict whether a customer will make a purchase or not based on an ecommerce dataset.
