@@ -73,5 +73,5 @@ Based on the evaluation results on the test set, the best performing model was s
 The model with the best scores was chosen to make the final predictions.
 
 ## Results
-The score achieved on this model was 0.645.
+The score achieved on this model was 0.645, which was among the top 15%.
 
