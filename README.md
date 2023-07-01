@@ -1,6 +1,6 @@
 # Ecommerce Shoppers Behaviour Understanding
 
-The project can be found in the file "Ecom.ipynb".
+The project can be found in the file "Ecommerce_pred.ipynb".
 
 # Problem overview
 This project aims to predict whether a customer will make a purchase or not based on an ecommerce dataset.
@@ -33,20 +33,17 @@ The other attributes like, OS, Search Engine, Zone, Type of Traffic, Customer Ty
 # Problem Solving Approach
 
 ## Data Analysis
-Before diving into the predictive modeling process, an exploratory data analysis was performed to gain insights into the dataset. The following steps were undertaken:
+Before diving into the predictive modeling process, an exploratory data analysis was performed to gain insights into the dataset. Observations from the data analysis:
 
-* Examined the distribution of features and labels.
-* Identified outliers using a box plot and correlation using a correlation matrix.
-* Investigated missing values or anomalies in the data.
+* Majority of the features had a right skewed distribution.
+* Outliers were present in large numbers and situated close to each other.
+* Some feature pairs like 'HomePage', 'HomePage_Duration' showed a high correlation.
+
+## Feature engineering
+Column pairs like 'HomePage' and 'HomePage_Duration' showed a high correlation, which is somewhat obvious. To avoid multi-collinearity, they were combined into a new feature like 'HomePage_comb' calculated as 'HomePage' * 'HomePage_Duration'.
 
 ## Data Preprocessing
 The following preprocessing steps were applied:
-
-### Duplicate Rows Handling:
-
-* Approach 1: Marked all duplicates as true to ensure wrongly marked false instances were correctly marked true.
-* Approach 2: Marked all duplicates as false, to ensure wrongly marked true instances were correctly marked false.
-* Evaluated the impact of each approach on model performance.
 
 ### Imputing and scaling:
 
@@ -54,12 +51,15 @@ The following preprocessing steps were applied:
 * Scaled numerical columns using StandardScaler.
 * Performed One-Hot Encoding to convert categorical variables into numerical representations.
 
+### Oversampling
+Due to class imbalance in our dataset the models were not able to perform well, hence oversampling of the minority class was done using SMOTE to address the issue.
+
 ## Model Building
 
-Various classification algorithms were explored to build predictive models, including logistic regression, decision trees, random forests, Bagging classifier, AdaBoost, and XGBoost. The following steps were followed:
+Various classification algorithms were explored to build predictive models, including logistic regression, decision trees, random forests, Bagging classifier, AdaBoost, XGBoost, StackingClassifier. The following steps were followed:
 
-* Trained each model using the preprocessed data.
-* Evaluated the performance of each model using appropriate metrics (e.g., precision, recall, F1 score, and accuracy).
+* Trained each model using the pre-processed data.
+* Evaluated the performance of each model using appropriate metrics (e.g., precision, recall, F1 score, and accuracy). Used classification report and confusion metrics for this.
 * The best performing algorithms from the previous step were identified and further optimized through hyperparameter tuning.
 
 ## Model Evaluation
@@ -73,5 +73,5 @@ Based on the evaluation results on the test set, the best performing model was s
 The model with the best scores was chosen to make the final predictions.
 
 ## Results
-The score achieved on this model was 0.645, which was among the top 15%.
+The score achieved on this model was 0.70, which was among the top 20 in the leaderboard.
 
