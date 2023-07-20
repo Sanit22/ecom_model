@@ -40,7 +40,7 @@ Before diving into the predictive modeling process, an exploratory data analysis
 * Some feature pairs like 'HomePage', 'HomePage_Duration' showed a high correlation.
 
 ## Feature engineering
-Column pairs like 'HomePage' and 'HomePage_Duration' showed a high correlation, which is somewhat obvious. To avoid multi-collinearity, they were combined into a new feature like 'HomePage_comb' calculated as 'HomePage' * 'HomePage_Duration'.
+Column pairs like 'HomePage' and 'HomePage_Duration' showed a high correlation, which is somewhat obvious. To avoid multi-collinearity, they were combined into a new feature like 'HomePage_comb' calculated as 'HomePage' multiplied by 'HomePage_Duration'.
 
 ## Data Preprocessing
 The following preprocessing steps were applied:
